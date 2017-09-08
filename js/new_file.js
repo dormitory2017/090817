@@ -1,15 +1,20 @@
-$(document).ready(function(){
+	//左侧滑动广告
+	
+	$(document).scroll(function(){
+		var H = $(window).height();//浏览器的高度(页面高度)  window为当前显示区域高度
+		var scrollH = $("body").scrollTop();//广告条滑动的高度    body为整个页面高度
+		var adH = $(".aside").height();//广告条的高度
+		$(".aside").stop(true,true).animate({
+			top:(((H-adH)/2)+scrollH)+"px"
+		},1000,"easeOutBack")
+	});
+	
+
+
 	//下拉菜单
 	$("nav ul li").hover(function(){
 		$(this).next("ul").slideDown(300);
 	})
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -53,7 +58,7 @@ $(document).ready(function(){
 	banner.hover(function(){
 		clearInterval(t);
 	},function(){
-		setInterval(rolling,1500);
+		t = setInterval(rolling,1500);
 	});
 	
 	
@@ -65,4 +70,3 @@ $(document).ready(function(){
 		points.eq(index).addClass("active");
 	}
 	
-});

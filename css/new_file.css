@@ -34,6 +34,19 @@ a{
 	text-decoration: none;
 }
 
+/*左侧滑动广告条*/
+
+.aside{
+	width: 80px;
+	height: 435px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+
+
+
 
 nav{
 	width: 1420px;
