@@ -42,22 +42,22 @@ nav{
 	line-height: 38px;
 }
 
-nav .left ul{
+nav  ul{
 	margin: 0;
 	padding:0 4px;
 	width: 1200px;
 	/*margin-left:110px ;*/
 }
 
-nav .left ul li{
+nav  ul li{
 	margin:0 18px;
 		float: left;
 }
-nav .left ul li a{
+nav ul li a{
 	font-size: 12px;
 	color: white;
 }
-nav .left ul li span{
+nav ul li span{
 	font-size: 10px;
 }
 nav .wechat img{
@@ -93,20 +93,37 @@ header .ad{
 }
 
 .banner{
-	width: inherit;
-	height: 400px;
+	width: 1200px;
+	height: 336px;
 	background-color: gray;
 	position: relative;
 }
 
-.banner ul li a img{
-	width: inherit;
-	height: inherit;
-	position: relative;
-	bottom: 52px;
+.banner a img{
+	width: 1200px;
+	height: 336px;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 
-.points{
-	width: 20px;
-	height: 20px;
+.banner .points{
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+}
+
+.banner .points span{
+	display: block;
+	width: 10px;
+	height: 10px;
+	background-color: white;
+	z-index: 100;
+	float: left;
+	margin:0 15px;
+	border-radius: 50%;
+}
+
+.banner .points span.active{
+	background-color: darkgray;
 }
