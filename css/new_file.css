@@ -76,7 +76,7 @@ nav ul li span{
 nav .wechat img{
 	position: relative;
 	top: 4px;
-	right: 12px;
+	right: 20px;
 }
 
 header{
@@ -139,4 +139,24 @@ header .ad{
 
 .banner .points span.active{
 	background-color: darkgray;
+}
+
+/*作品广告图*/
+
+.ad-image{
+	width: 270px;
+	height: 180px;
+	border: 1px solid gray;
+	position: relative;
+	float: left;
+	margin: 10px;
+	overflow: hidden;
+}
+
+.ad-image img{
+	width: inherit;
+	height: inherit;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
