@@ -101,8 +101,20 @@ $(document).ready(function(){
 	});
 	
 //new-class
-	
 
+//顶部导航
+	
+	$(".list ul li").hover(function(){
+		var index = $(this).index();
+		$(".list ul li").removeClass("active").eq(index).addClass("active");
+		$(".new-group .image").hide().eq(index).show();
+	});
+	
+	$(".list ul li").hover(function(){
+		var index = $(this).index();
+		$(".list ul li").removeClass("active").eq(index).addClass("active");
+		$(".new-group .image").hide().eq(index).show();
+	});
 
 //作品广告图
 	$(".ad-image").hover(function(){
@@ -114,8 +126,8 @@ $(document).ready(function(){
 		},200);
 	},function(){
 		$(this).children("img").animate({
-			width:"100%",
-			height:"100%",
+			width: "100%",
+			height: "100%",
 			top:"0%",
 			left:"0%"
 		},200);

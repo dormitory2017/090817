@@ -1,4 +1,7 @@
 @import url("normalize.css");
+*{
+	box-sizing: border-box;
+}
 body{
 	font-family: "微软雅黑";
 }
@@ -353,20 +356,41 @@ li{
 	.class-ad .class-hot{
 		width: 200px;
 		height: inherit;
-		background-color: darkgreen;
+		/*background-color: darkgreen;*/
 	}
 	
+	.class-hot .text-title{
+		height: 14px;
+		text-align: center;
+		line-height: 0;
+	}
+	
+	.class-hot .item{
+		width: 200px;
+		height: 130px;
+		margin-top: 10px;
+	}
 	
 /*new-class*/
 	.new-class{
 		height: 300px;
 		background-color: gainsboro;
 		margin-top: 46px;
+		box-sizing: border-box;
+		position: relative;
 	}
 	
 	.class-title{
-		height: 32px;
-		background-color: cornflowerblue;
+		height: 30px;
+		width: 100%;
+		/*background-color: cornflowerblue;*/
+		border-bottom: 1px solid gray;
+	}
+	
+	
+	.class-title .list ul li.active{
+		font-weight: bolder;
+		border-bottom: 2px red solid;
 	}
 	
 	.class-title a{
@@ -377,7 +401,6 @@ li{
 		height: 32px;
 		line-height: 32px;
 		margin-right: 28px;
-		border-bottom:1px solid #dddddd ;
 	}
 	.new-class .list ul li{
 		float: left;
@@ -387,27 +410,58 @@ li{
 		font-size: 16px;
 	}
 	
+	.new-group{
+		width:1200px ;
+		height: 234px;
+		/*background-color: gray;*/
+		margin-top: 36px;
+		position: relative;
+	}
 	.new-class .image{
-		margin:34px 10px 0 8px;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width:1200px ;
+		height: 234px;
+		margin:0 10px 0 8px;
+	}
+	.image .border{
+		width: 270px;
+		height: 234px;
+		float: left;
+		margin-right:34px;
+	}
+	.border:last-child{
+		margin-right: 0px;
 	}
 	.ad-image{
 		width: 270px;
 		height: 180px;
 		position: relative;
 		float: left;
-		margin-right:34px;
 		overflow: hidden;
-	}
-	.ad-image:last-child{
-		margin-right: 0px;
 	}
 	
 	.ad-image img{
-		width: inherit;
-		height: inherit;
+		width: 270px;
+		height: 180px;
 		position: absolute;
 		top: 0;
 		left: 0;
+	}
+	
+	.border .text{
+		width: 270px;
+		height: 52px;
+	}
+	.border .text .h-1{
+		font-size: 14px;
+		font-weight: 400;
+	}
+	
+	.border .text p{
+		font-size: 10px;
+		margin-top: 6px;
 	}
 	
 <!--class-price-->
