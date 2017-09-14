@@ -42,7 +42,7 @@
 				
 			.list{
 				width: 300px;
-				height: 390px;
+				height: 400px;
 				background-color: gray;
 				/*position: absolute;*/
 				right: 20px;
@@ -60,6 +60,30 @@
 			.list .item a{
 				text-decoration: none;
 				color: white;
+				box-sizing: border-box;
+			}
+			
+			.item {
+				margin: 10px 0;
+			}
+			
+			.item:hover{
+				background-color: dimgray;
+			}
+			
+			#tag{
+				width: 260px;
+				height: 40px;
+				text-align: center;
+				/*background-color: gray;*/
+				margin-top: 20px;
+			}
+			
+			#tag a{
+				text-decoration: none;
+				color:black;
+				font-family: "微软雅黑";
+				font-size: 14px;
 			}
 			
 			.btn-group{
@@ -169,11 +193,15 @@
 			</div>
 			
 			<div class="list">
-					<div class="item item-1" draggable="true"><a href="#">West Life </a></div>
-					<div class="item item-2" draggable="true"><a href="#">linkin Park</a></div>
-					<div class="item item-3" draggable="true"><a href="#">Adam Lambert</a></div>
+					<div class="item item-1" draggable="true"><a href="#">When I'm With You - Westlife </a></div>
+					<div class="item item-2" draggable="true"><a href="#">Figure.09 - Linkin Park</a></div>
+					<div class="item item-3" draggable="true"><a href="#">Whataya Want From Me</a></div>
 			</div>
-		
+			
+			<div id="tag">
+				<a href="#">When I'm With You - Westlife</a>
+			</div>
+			
 			<div class="btn-group">
 				<div class="prev"></div>
 				<div class="play"></div>
@@ -194,8 +222,10 @@
 				var range = document.getElementById("range");
 				var time = document.getElementById("time");
 				var image = document.getElementsByClassName("image");
+				var tag = document.getElementById("tag");
 				
-				var music = [{mp3:"01.mp3",img:"01.jpg"},{mp3:"02.mp3",img:"02.jpg"},{mp3:"03.mp3",img:"03.jpg"}]
+				
+				var music = [{mp3:"01.mp3",img:"01.jpg",tag:"When I'm With You - Westlife"},{mp3:"02.mp3",img:"02.jpg",tag:"Figure.09 - Linkin Park"},{mp3:"03.mp3",img:"03.jpg",tag:"Whataya Want From Me"}]
 				var index = 0;
 				var count = music.length;
 				
@@ -216,6 +246,7 @@
 					mp3.pause();
 					index = (index-1+count)%count;
 					mp3.src="media/"+music[index].mp3;
+					tag.innerText = music[index].tag;
 					cd.children[0].setAttribute("src","media/"+music[index].img);
 					mp3.currentTime = 0;
 					mp3.play();
@@ -224,6 +255,7 @@
 				next.onclick = function(){
 					mp3.pause();
 					index = (index+1)%count;
+					tag.innerText = music[index].tag;
 					mp3.src = "media/"+music[index].mp3;
 					cd.children[0].setAttribute("src","media/"+music[index].img);
 					mp3.play();
@@ -262,6 +294,19 @@
 				var item = document.getElementsByClassName("item");
 				
 				for(var i = 0;i<item.length;i++){
+					item[i].index = i;
+					item[i].onclick = function(){
+					var j = this.index;
+					mp3.pause();
+//					index = this[i];// 索引值 ？？？？
+					tag.innerText = music[j].tag;
+					mp3.src = "media/"+music[j].mp3;
+					cd.children[0].setAttribute("src","media/"+music[j].img);
+					cd.style.webkitAnimationPlayState = "running";//running  默认值
+					play.setAttribute("class","pause");
+					mp3.play();
+					}
+					
 //					item[i].ondrop = function(){
 //					
 //					}
@@ -270,27 +315,57 @@
 //					item[i].ondragend = function(){
 //						
 //					}
-
+					console.log(item[i])
 				}
 				
-				cd.ondragover = function(e){
-					e.preventDefault();
-				}
-				
-				cd.ondrop = function(){
-					choose();
-				}
-				
-				
-				function choose(){
+				for(var i = 0;i<item.length ;i++){
+					item[i].index = i;
+					item[i].ondragend = function(){
+					var j = this.index;
+					console.log(j);
 					mp3.pause();
-					index = index;// 索引值 ？？？？
-					mp3.src = "media/"+music[index].mp3;
-					cd.children[0].setAttribute("src","media/"+music[index].img);
+//					index = this[i];// 索引值 ？？？？
+					tag.innerText = music[j].tag;
+					mp3.src = "media/"+music[j].mp3;
+					cd.children[0].setAttribute("src","media/"+music[j].img);
 					cd.style.webkitAnimationPlayState = "running";//running  默认值
 					play.setAttribute("class","pause");
 					mp3.play();
 				}
+			}
+				
+				
+//				cd.ondragover = function(e){
+//					e.preventDefault();
+//				}
+//				
+//				cd.ondrop = function(){
+//					choose();
+//				}
+				
+//				function choose(){
+//					mp3.pause();
+////					index = this[i];// 索引值 ？？？？
+//					this[index] = index;
+//					mp3.src = "media/"+music[index].mp3;
+//					cd.children[0].setAttribute("src","media/"+music[index].img);
+//					cd.style.webkitAnimationPlayState = "running";//running  默认值
+//					play.setAttribute("class","pause");
+//					mp3.play();
+//				}
+
+//				function choose(){
+//					item[i].index = i;
+//					var j = this.index;
+//					mp3.pause();
+////					index = this[i];// 索引值 ？？？？
+//					tag.innerText = music[j].tag;
+//					mp3.src = "media/"+music[j].mp3;
+//					cd.children[0].setAttribute("src","media/"+music[j].img);
+//					cd.style.webkitAnimationPlayState = "running";//running  默认值
+//					play.setAttribute("class","pause");
+//					mp3.play();
+//				}
 			</script>
 		</div>
 	</body>
