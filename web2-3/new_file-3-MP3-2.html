@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.miusic{
+				width: 600px;
+				height: 400px;
+				background-color: gainsboro;
+				margin: 20px auto;
+				/*position: relative;*/
+				padding: 30px;
+				border-radius: 10px;
+			}
+			
+			.cd{
+				width: 260px;
+				height: 260px;
+				background-color: black;
+				/*position: absolute;*/
+				/*top: 20px;
+				left: 20px;*/
+				border-radius: 50%;
+				float: left;
+				position: relative;
+				-webkit-animation:image-rotate 3s linear infinite ;
+				-webkit-animation-play-state: paused;
+			}
+			
+			
+			.cd img{
+				width: 160px;
+				height: 160px;
+				position: absolute;
+				top: 50px;
+				left:50px;
+				border-radius: 50%;		
+				
+			}	
+				
+				
+			.list{
+				width: 300px;
+				height: 390px;
+				background-color: gray;
+				/*position: absolute;*/
+				right: 20px;
+				top: 20px;
+				float: right;
+				border-radius: 10px;
+			}
+			
+			.list ul {
+				list-style: none;
+			}
+			.list ul li{}
+			.list ul li a{
+				text-decoration: none;
+				color: white;
+			}
+			
+			.btn-group{
+				width: 260px;
+				height: 100px;
+				background-color: slategray;
+				/*position: absolute;*/
+				/*bottom: 20px;
+				left: 20px;*/
+				margin-top: 40px;
+				float: left;
+				position: relative;
+				border-radius: 10px;
+			}
+			
+			.group > *{
+				float: left;
+			}
+			
+			.prev{
+				width:30px;
+				height:30px;
+				position: absolute;
+				left: 20px;
+				top: 16px;
+				background-image: url(img/left174.png);
+				background-size: 30px 30px;
+			}
+			
+			
+			.play{
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				left: 60px;
+				top: 10px;
+				background-image: url(img/play84.png);
+				background-size: 40px 40px;
+			}
+			
+			
+			.pause{
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				left: 60px;
+				top: 10px;
+				background-image: url(img/pause39.png);
+				background-size: 40px 40px;
+			}
+			
+			.next{
+				width: 30px;
+				height: 30px;
+				position: absolute;
+				left: 110px;
+				top: 16px;
+				background-image: url(img/right169.png);
+				background-size: 30px 30px;
+				
+			}
+			
+			.time-show{
+				width: 240px;
+				height: 30px;
+				position: absolute;
+				left: 10px;
+				bottom: 10px;
+				
+			}
+			
+			.time-show input{
+				float: left;
+				width: 100px;
+				height: inherit;
+
+			}
+			.time-show p{
+				float: right;
+				margin: 8px;
+				font-size: 16px;
+			}
+			
+			/*旋转动画*/
+			@-webkit-keyframes image-rotate{
+				from{
+					-webkit-transform: rotate(0deg);
+				}
+				to{
+					-webkit-transform: rotate(359deg);
+				}
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<audio id="mp3" controls="controls" >
+			<source src="media/01.mp3" type="audio/mp3"></source>
+			<source src="media/02.mp3" type="audio/mp3"></source>
+			<source src="media/03.mp3" type="audio/mp3"></source>
+		</audio>
+		
+		<div class="miusic">
+			<div class="cd">
+					<img src="media/01.jpg"/>
+			</div>
+			
+			<div class="list">
+				<ul>
+					<li><a href="#" draggable="true">West Life</a></li>
+					<li><a href="#" draggable="true">linkin Park</a></li>
+					<li><a href="#" draggable="true">Adam Lambert</a></li>
+				</ul>
+			</div>
+		
+			<div class="btn-group">
+				<div class="prev"></div>
+				<div class="play"></div>
+				<div class="next"></div>
+				<div class="time-show">
+					<input type="range" value="0" id="range"  style="background-color: gray;"/>
+					<p id="time">00:00/00:00</p>
+				</div>
+			</div>
+			
+			
+			<script type="text/javascript">
+				var mp3 = document.getElementById("mp3");
+				
+				var play = document.getElementsByClassName("play")[0];
+				var prev = document.getElementsByClassName("prev")[0];
+				var next = document.getElementsByClassName("next")[0];
+				var range = document.getElementById("range");
+				var time = document.getElementById("time");
+				var image = document.getElementsByClassName("image");
+				
+				var music = [{mp3:"01.mp3",img:"01.jpg"},{mp3:"02.mp3",img:"02.jpg"},{mp3:"03.mp3",img:"03.jpg"}]
+				var index = 0;
+				var count = music.length;
+				
+				
+				play.onclick = function(){
+					if(mp3.paused){
+						mp3.play();
+						image.style.webkitAnimationPlayState = "running";//running  默认值
+						play.setAttribute("class","pause");
+					}else{
+						mp3.pause();
+						image.style.webkitAnimationPlayState = "paused";//paused  默认值
+						play.setAttribute("class","play");
+					}
+				}
+
+				prev.onclick = function(){
+					mp3.pause();
+					index = (index-1+count)%count;
+					mp3.src="media/"+music[index].mp3;
+					image.children[0].setAttribute("src","media/"+music[index].jpg);
+					mp3.currentTime = 0;
+					mp3.play();
+				}
+
+				next.onclick = function(){
+					mp3.pause();
+					index = (index+1)%count;
+					mp3.src = "media/"+music[index].mp3;
+					image.children[0].setAttribute("src","media/"+music[index].img);
+				}
+
+				
+			</script>
+		</div>
+	</body>
+</html>

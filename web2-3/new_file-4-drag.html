@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+			}
+			.item{
+				width: 100px;
+				height: 100px;
+				float: left;
+				margin: 10px;
+				}
+				
+			.box{
+				width: 90%;
+				height: 300px;
+				border: solid 1px gray;
+				position: fixed;
+				bottom: 10px;
+				margin-left:5% ;
+				border-radius: 10px;
+			}	
+		</style>
+	</head>
+	<body>
+		<div class="item " draggable="true" style="background-color: gainsboro;"></div>
+		<div class="item " draggable="true" style="background-color: lightgrey;"></div>
+		<div class="item " draggable="true" style="background-color: darkgray;"></div>
+		<div class="item " draggable="true" style="background-color: gray;"></div>
+		<div class="item " draggable="true" style="background-color: dimgray;"></div>
+		<div class="box"></div>
+		
+		<script type="text/javascript">
+			var item = document.getElementsByClassName("item");
+			var box = document.getElementsByClassName("box")[0];
+//			var tmp = null; //设定一个空值   (拖谁谁变空)
+			
+			//开始
+			for(var i = 0; i<item.length;i++){
+				item[i].ondragstart = function(){
+					console.log("开始")
+//					tmp = this;
+				}
+			}
+			
+			//结束
+			for (var i = 0; i<item.length;i++){
+				item[i].ondragend = function(){
+					console.log("结束");
+				}
+			}
+			
+			//进入
+			box.ondragenter = function(){
+				console.log("进入")
+				this.style.borderColor = "black";
+			}
+			
+			//悬停
+			box.ondragover = function(e){
+				e.preventDefault();  //阻止默认事件对象
+//				console.log("悬停")
+			}
+			
+			//离开
+			box.ondragleave = function(e){
+				console.log("离开");
+				this.style.borderColor = "gray"
+			}
+			
+			//释放
+			box.ondrop = function(){
+				console.log("释放")
+				this.style.borderColor = "gray";
+				tmp.setAttribute("draggable","false");//拖拽进入后不能再次拖拽
+				this.appendChild(tmp);	
+			}
+			
+		</script>
+	</body>
+</html>
