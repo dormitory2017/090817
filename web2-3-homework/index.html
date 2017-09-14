@@ -219,6 +219,7 @@
 					cd.children[0].setAttribute("src","media/"+music[index].img);
 					mp3.currentTime = 0;
 					mp3.play();
+					play.setAttribute("class","pause");
 				}
 				next.onclick = function(){
 					mp3.pause();
@@ -226,6 +227,7 @@
 					mp3.src = "media/"+music[index].mp3;
 					cd.children[0].setAttribute("src","media/"+music[index].img);
 					mp3.play();
+					play.setAttribute("class","pause");
 				}
 			
 				
@@ -260,9 +262,10 @@
 				var item = document.getElementsByClassName("item");
 				
 				for(var i = 0;i<item.length;i++){
-					item[i].ondrop = function(){
-					}
+//					item[i].ondrop = function(){
 //					
+//					}
+					
 					
 //					item[i].ondragend = function(){
 //						
@@ -278,11 +281,10 @@
 					choose();
 				}
 				
-				var tmp = item.index();
 				
 				function choose(){
 					mp3.pause();
-					index = index;// 索引值 ？？？？
+					item[index] = index;// 索引值 ？？？？
 					mp3.src = "media/"+music[index].mp3;
 					cd.children[0].setAttribute("src","media/"+music[index].img);
 					cd.style.webkitAnimationPlayState = "running";//running  默认值
