@@ -169,7 +169,7 @@
 			</div>
 			
 			<div class="list">
-					<div class="item item-1" draggable="true"><a href="#">West Life</a></div>
+					<div class="item item-1" draggable="true"><a href="#">West Life </a></div>
 					<div class="item item-2" draggable="true"><a href="#">linkin Park</a></div>
 					<div class="item item-3" draggable="true"><a href="#">Adam Lambert</a></div>
 			</div>
@@ -227,6 +227,8 @@
 					cd.children[0].setAttribute("src","media/"+music[index].img);
 					mp3.play();
 				}
+			
+				
 
 				//显示播放时间
 				
@@ -256,18 +258,16 @@
 				//拖拽
 				
 				var item = document.getElementsByClassName("item");
-				var tmp = index;
 				
 				for(var i = 0;i<item.length;i++){
-					item[i].ondragstart = function(){
-						console.log("开始")
+					item[i].ondrop = function(){
 					}
-				}
-				
-				for(var i = 0; i<item.length;i++){
-					item[i].ondragend = function(){
-						console.log("结束")
-					}
+//					
+					
+//					item[i].ondragend = function(){
+//						
+//					}
+
 				}
 				
 				cd.ondragover = function(e){
@@ -275,7 +275,19 @@
 				}
 				
 				cd.ondrop = function(){
-					play.onclick();
+					choose();
+				}
+				
+				var tmp = item.index();
+				
+				function choose(){
+					mp3.pause();
+					index = index;// 索引值 ？？？？
+					mp3.src = "media/"+music[index].mp3;
+					cd.children[0].setAttribute("src","media/"+music[index].img);
+					cd.style.webkitAnimationPlayState = "running";//running  默认值
+					play.setAttribute("class","pause");
+					mp3.play();
 				}
 			</script>
 		</div>
