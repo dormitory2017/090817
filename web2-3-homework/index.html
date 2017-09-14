@@ -284,7 +284,7 @@
 				
 				function choose(){
 					mp3.pause();
-					item[index] = index;// 索引值 ？？？？
+					index = index;// 索引值 ？？？？
 					mp3.src = "media/"+music[index].mp3;
 					cd.children[0].setAttribute("src","media/"+music[index].img);
 					cd.style.webkitAnimationPlayState = "running";//running  默认值
