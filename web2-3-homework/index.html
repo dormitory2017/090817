@@ -193,9 +193,9 @@
 			</div>
 			
 			<div class="list">
-					<div class="item item-1" draggable="true"><a href="#">When I'm With You - Westlife </a></div>
-					<div class="item item-2" draggable="true"><a href="#">Figure.09 - Linkin Park</a></div>
-					<div class="item item-3" draggable="true"><a href="#">Whataya Want From Me</a></div>
+					<div index = "0" class="item item-1" draggable="true"><a href="#">When I'm With You - Westlife </a></div>
+					<div index = "1" class="item item-2" draggable="true"><a href="#">Figure.09 - Linkin Park</a></div>
+					<div index = "2" class="item item-3" draggable="true"><a href="#">Whataya Want From Me</a></div>
 			</div>
 			
 			<div id="tag">
@@ -311,12 +311,20 @@
 //					
 //					}
 					
-					
 //					item[i].ondragend = function(){
 //						
 //					}
 					console.log(item[i])
 				}
+				
+				
+				for(var i = 0;i<item.length;i++){
+					item[i].ondragstart = function(){
+						TmpIndex = this.getAttribute("index"); 
+					}
+				}
+					
+				
 				
 				for(var i = 0;i<item.length ;i++){
 					item[i].index = i;
@@ -334,14 +342,18 @@
 				}
 			}
 				
-				
-//				cd.ondragover = function(e){
-//					e.preventDefault();
-//				}
+				cd.ondragover = function(e){
+					e.preventDefault();
+				}
 //				
-//				cd.ondrop = function(){
-//					choose();
-//				}
+				cd.ondrop = function(){
+					index = TmpIndex;
+					tag.innerText = music[j].tag;
+					cd.children[0].setAttribute("src","media/"+music[j].img);
+					cd.style.webkitAnimationPlayState = "running";//running  默认值
+					play.setAttribute("class","pause");
+					mp3.play();
+				}
 				
 //				function choose(){
 //					mp3.pause();
