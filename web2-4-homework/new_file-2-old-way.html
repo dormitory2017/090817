@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				border: 1px solid gainsboro;
+				width: 400px;
+				height: 400px;
+				display: block;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800"></canvas>
+		<script type="text/javascript">
+			
+			var canvas = document.getElementById("canvas");
+				canvas.weight = 800	;
+				canvas.height = 800	;
+				
+			var context = canvas.getContext("2d");
+			
+			//块一
+			
+			
+				context.moveTo(0,0);
+				context.lineTo(800,0);
+				context.lineTo(400,400);
+				context.fillStyle = "#caff67";
+				context.fill();
+				context.closePath();
+				
+			//块二
+				context.beginPath();
+				context.moveTo(0,0);
+				context.lineTo(400,400);
+				context.lineTo(0,800);
+				context.fillStyle = "#67becf";
+				context.fill();
+				context.closePath();
+			//块三
+				context.beginPath();
+			
+				context.moveTo(800,0);
+				context.lineTo(800,400);
+				context.lineTo(600,600);
+				context.lineTo(600,200);
+				context.fillStyle = "#ef3d61";
+				context.fill();
+				context.closePath();
+			//块四	
+				context.beginPath();
+					
+				context.moveTo(600,200);
+				context.lineTo(600,600);
+				context.lineTo(400,400);
+				context.fillStyle = "#f9f51a";
+				context.fill();
+				context.closePath();
+			//块五
+				context.beginPath();
+			
+				context.moveTo(400,400);
+				context.lineTo(600,600);
+				context.lineTo(400,800);
+				context.lineTo(200,600);
+				context.fillStyle = "#a54c09";
+				context.fill();
+				context.closePath();
+			//块六
+				context.beginPath();
+			
+				context.moveTo(200,600);
+				context.lineTo(400,800);
+				context.lineTo(0,800);
+				context.fillStyle = "#fa8ccc";
+				context.fill();
+				context.closePath();
+			//块七
+				context.beginPath();
+			
+				context.moveTo(800,400);
+				context.lineTo(800,800);
+				context.lineTo(400,800);
+				context.fillStyle = "#f6ca29";
+				context.fill();
+				context.closePath();
+				
+		</script>	
+	</body>
+</html>
