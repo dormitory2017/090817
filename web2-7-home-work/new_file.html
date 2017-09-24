@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*.clear{
+				content: "";
+				display: block;
+				clear: both;
+			}*/
+			.box{
+				  margin: 20px auto;
+				  width: 800px;
+				  position: relative;
+				 /* overflow: hidden;*/
+				  -webkit-perspective: 1000px;
+				  }
+			.img{
+				width: 800px;
+				height: 200px;
+			
+			}
+			.back{
+				width: 800px;
+				height: 200px;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				overflow: hidden;
+				/*background-image: url(img/Lighthouse.jpg);
+				background-position: center;*/
+				/*-webkit-transform: translateZ(-150px) translateX(0px);
+				-webkit-animation: back-action 5s linear infinite;
+				*/
+			}
+			.back img{
+				width: 1024px;
+				height: 200px;
+				-webkit-transform: translateZ(-100px) translateX(0px);
+				-webkit-animation: back-action 2s linear infinite;
+			}
+			.foot{
+				width: 800px;
+				height: 200px;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				background-color: gray;
+				-webkit-transform: translateY(100px)  rotateX(90deg);
+			}
+			
+			.man{
+				width: 104px;
+				height: 114px;
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				z-index: 999;
+				background-image: url(img/man1.png);
+				-webkit-transform: translateX(0px) translateY(0px);
+				-webkit-animation: run 5s 0.2s linear infinite;
+				-webkit-animation-play-state: running;
+			}
+			.zoo{
+				width: 104px;
+				height: 114px;
+				position: absolute;
+				bottom: 0px;
+				left: 150px;
+				
+				background-color: yellow;
+				-webkit-transform: translateX(0px);
+				-webkit-animation: color 2s 0.2s linear infinite;
+			}
+			.btn{
+				width: 260px;
+				height: 50px;
+				background-color: orange;
+				margin: 100px auto;
+			}
+			.btn button{
+				width: 50px;
+				height: 30px;
+				border-radius:5%;
+				margin-top: 10px;
+				margin-left: 10px;
+				background-color: cornflowerblue;
+				color: white;
+			}
+			.btn button:hover{
+				background-color:red;
+				color: black;
+			}
+			@-webkit-keyframes run{
+				0%{
+					background-image: url(img/man1.png);
+					-webkit-transform: translateX(0px);
+				}
+				10%{
+					background-image: url(img/man2.png);
+					-webkit-transform: translateX(30px);
+				}
+				20%{
+					background-image: url(img/man3.png);
+					-webkit-transform: translateX(70px);
+				}
+				30%{
+					background-image: url(img/man4.png);
+					-webkit-transform: translateX(90px);
+				}
+				40%{
+					background-image: url(img/man5.png);
+					-webkit-transform: translateX(200px);
+				}
+				50%{
+					background-image: url(img/man6.png);
+					-webkit-transform: translateX(300px);
+				}
+				60%{
+					background-image: url(img/man7.png);
+					-webkit-transform: translateX(400px);
+				}
+				70%{
+					background-image: url(img/man8.png);
+					-webkit-transform: translateX(500px);
+				}
+				80%{
+					background-image: url(img/man9.png);
+					-webkit-transform: translateX(600px);
+				}
+				90%{
+					background-image: url(img/man1.png);
+					-webkit-transform: translateX(700px);
+				}
+				100%{
+					background-image: url(img/man2.png);
+					-webkit-transform: translateX(0px);
+				}
+			}
+			@-webkit-keyframes color{
+				0%{
+					background-color: yellow;
+					-webkit-transform: translateX(0px);
+				}
+				10%{
+					background-color: blue;
+					-webkit-transform: translateX(30px);
+				}
+				20%{
+					background-color: blueviolet;
+					-webkit-transform: translateX(50px);
+				}
+				30%{
+					background-color: red;
+					-webkit-transform: translateX(70px);
+				}
+				40%{
+					background-color: peru;
+					-webkit-transform: translateX(90px);
+				}
+				50%{
+					background-color: green;
+					-webkit-transform: translateX(110px);
+				}
+				60%{
+					background-color: orange;
+					-webkit-transform: translateX(130px);
+				}
+				70%{
+					background-color: gray;
+					-webkit-transform: translateX(150px);
+				}
+				80%{
+					background-color: powderblue;
+					-webkit-transform: translateX(170px);
+				}
+				90%{
+					background-color: yellow;
+					-webkit-transform: translateX(190px);
+				}
+				100%{
+					background-color: blue;
+				    -webkit-transform: translateX(210px);
+				}
+			}
+			@-webkit-keyframes back-action{
+				0%{
+					
+				  -webkit-transform: translateX(0px);
+				}
+				10%{
+					background-color: blue;
+					-webkit-transform: translateX(-10px);
+				}
+				20%{
+					background-color: blueviolet;
+					-webkit-transform: translateX(-20px);
+				}
+				30%{
+					background-color: red;
+					-webkit-transform: translateX(-30px);
+				}
+				40%{
+					background-color: peru;
+					-webkit-transform: translateX(-40px);
+				}
+				50%{
+					background-color: green;
+					-webkit-transform: translateX(-50px);
+				}
+				60%{
+					background-color: orange;
+					-webkit-transform: translateX(-60px);
+				}
+				70%{
+					background-color: gray;
+					-webkit-transform: translateX(-70px);
+				}
+				80%{
+					background-color: powderblue;
+					-webkit-transform: translateX(-80px);
+				}
+				90%{
+					background-color: yellow;
+					-webkit-transform: translateX(-90px);
+				}
+				100%{
+					background-color: blue;
+				    -webkit-transform: translateX(0px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="img">
+			<div class="back">
+				<img src="img/Lighthouse.jpg"  class="tem"/>
+			</div>
+			<div class="foot"></div>
+			</div>
+			<div class="man tem"></div>
+			<div class="zoo tem"></div>
+		</div>
+		<div class="btn">
+		<button class="start">开始</button>
+	     <button class="top">上</button>
+		<button class="down">下</button>
+		<button class="end">结束</button>
+		</div>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript">
+		$(".top").mouseup(function(){
+				$(".man").css("-webkit-animation-play-state","running");
+				$(".man").css("bottom",""+0+"px");
+			});
+		  $(".top").mousedown(function(){
+		  	var r=Math.random()*100+100;
+		  	$(".man").css("-webkit-animation-play-state","paused");
+		  	 $(".man").css("bottom",""+r+"px");
+		  	 });
+		  	 
+		  $(".down").mouseup(function(){
+				$(".man").css("-webkit-animation-play-state","running");
+				$(".man").css("bottom",""+0+"px");
+			});
+		 $(".down").mousedown(function(){
+		  	var s=Math.random()*20+40;
+		  	console.log(s);
+		  	$(".man").css("-webkit-animation-play-state","paused");
+		  	 $(".man").css("bottom",""+s*-1+"px");
+		  });
+		  $(".start").mousedown(function(){
+		  	$(".tem").css("-webkit-animation-play-state","running");
+		  });
+		  $(".end").mousedown(function(){
+		  	$(".tem").css("-webkit-animation-play-state","paused");
+		  });
+		  	 
+		</script>
+	</body>
+</html>
