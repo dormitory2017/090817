@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html{
+				font-size: calc(100vw/6.4);
+			}
+			body{
+				margin: 0;
+			}
+			
+			.left{
+				float: left;
+			}
+			
+			.right{
+				float: right;
+			}
+			
+			.clear:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			/*搜索框*/
+			.top{
+				width: 100%;
+				/*min-width: 120px;*/
+				height:0.9rem;
+				line-height: 0.9rem;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background-color: gainsboro;
+				background-image: linear-gradient(to top ,#efefef,#ffffff);
+				overflow: hidden;
+			}
+			
+			
+			.back{
+				width: 0.6rem;
+				height:0.8rem;
+				line-height: 0.75rem;
+				/*background-color: gray;*/
+				position: absolute;
+				/*float: left;*/
+			}*/
+			
+			.search{
+				width: 100%;
+				height: 0.8rem;
+				box-sizing: border-box;
+				margin-left: 0.6rem;
+				padding-right: 1.2rem;
+				padding: 0;
+				margin: 0;
+			}
+			
+			.search input{
+				width: 74%;
+				height:0.6rem;
+				border-radius: 0.5rem;
+				outline: none;
+				border: 1px solid gray;
+				position: absolute;
+				top: 0.15rem;
+				left: 0.7rem;
+				/*box-sizing: border-box;*/
+			}
+			
+			.box{
+				width: 0.8rem;
+				height:0.8rem;
+				position: absolute;
+				right: 0;
+				top: 0.05rem;
+				background-color: gray;
+			}
+			.content{
+				height: 100vh;
+				background-color: #f3f5f7;
+				overflow: hidden;
+				box-sizing: border-box;
+				padding-top: 0.9rem;
+			}
+			
+			.list{
+				height: inherit;
+				width: 1.5rem;
+				font-size: 0.2rem;
+				line-height:0.9rem ;
+				border-right: 1px solid #e5e5e5;
+				text-align: center;
+				position: relative;
+				background-color: white;
+				overflow:  hidden;
+			}
+			
+			.list ul{
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				background-color: white;
+				border-right: 1px solid #e5e5e5;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.list ul li{
+				border-bottom: 1px solid #e5e5e5;
+				
+			}
+			.list ul li a{
+				text-decoration: none;
+				color: #232323;
+			}
+			
+			
+			/*右侧*/
+			.category{
+				padding:0.02rem;
+				box-sizing: border-box;
+				background-color: #F3F5F7;
+			}
+			
+			
+			.category .banner{
+				width: 4.8rem;
+				height: 1.6rem;
+				background-color: gray;
+				background-image: url(img/59c50d1dN86d6298b.jpg!q70.jpg);
+				background-size: 4.8rem 1.6rem;
+			}
+			
+			.special{
+				height: 2.66rem;
+				width: inherit;
+				font-size: 0.22rem;
+				/*line-height: 0.6rem;*/
+				padding-top: 0.38rem;
+				box-sizing: border-box;
+			}
+			
+			.board{
+				width: 100%;
+				height: 1.86rem;
+				box-sizing: border-box;
+				padding: 0.16rem 0.34rem 0.06rem;
+				background-color: white;
+				
+			}
+			
+			.board .item{
+				width:1.1rem;
+				height: 1.7rem;
+				float: left;
+				margin-right: 0.31rem;
+			}
+			
+			.board .item:last-child{
+				margin:0;
+			}
+			.board .item img{
+				height: 1.06rem;
+				width: 1.1rem;
+			}
+			
+			.board .item p{
+				margin: 0;
+				padding: 0;
+				text-align: center;
+			}
+			
+			.hot{
+				height: 5.92rem;
+				width: 100%;
+				/*background-color: gray;*/
+				box-sizing: border-box;
+				padding-top: 0.38rem;
+				font-size: 0.22rem;
+			}
+			
+			.item-board{
+				width: 100%;
+				height: 2rem;
+				padding: 0.24rem 0.6rem 0.34rem 0.55rem;
+				background-color: white;
+				clear: both;
+			}
+			
+			.item-board .item{
+				width: 0.9rem;
+				height: 1.4rem;
+				float: left;
+			}
+			
+			.item-board .item img{
+				width: 0.9rem;
+				height: 0.7rem;
+			}
+			.item-board .item p{
+				text-align: center;
+			}
+			
+			#children{
+				height: 0.5rem;
+				width: 100%;
+				padding-left: 0.8rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="top">
+			<div class="back">
+				<
+			</div>
+			<div class="search">
+				<input type="text"/>
+			</div>
+			<div class="box">
+				
+			</div>
+		</div>
+		<div class="content">
+			<div class="list left">
+				<ul>
+					<li><a href="#">热门推荐</a></li>
+					<li><a href="#">热门推荐</a></li>
+					<li><a href="#">国际名牌</a></li>
+					<li><a href="#">奢侈品</a></li>
+					<li><a href="#">全球购</a></li>
+					<li><a href="#">男装</a></li>
+					<li><a href="#">女装</a></li>
+					<li><a href="#">男鞋</a></li>
+					<li><a href="#">女鞋</a></li>
+					<li><a href="#">内衣配饰</a></li>
+					<li><a href="#">箱包手袋</a></li>
+					<li><a href="#">热门推荐</a></li>
+					<li><a href="#">热门推荐</a></li>
+					<li><a href="#">国际名牌</a></li>
+					<li><a href="#">奢侈品</a></li>
+					<li><a href="#">全球购</a></li>
+					<li><a href="#">男装</a></li>
+					<li><a href="#">女装</a></li>
+					<li><a href="#">男鞋</a></li>
+					<li><a href="#">女鞋</a></li>
+					<li><a href="#">内衣配饰</a></li>
+					<li><a href="#">箱包手袋</a></li>
+				</ul>
+				
+			</div>
+			<div class="category right">
+				<div class="banner"></div>
+				<div class="special">
+					<p class="text">专场推荐</p>
+					<div class="board">
+						<div class="item">
+							<img src="img/59b63794Ne1e3031a.jpg!q70.jpg"/>
+							<p>手机</p>
+						</div>
+						<div class="item">
+							<img src="img/58ef273dNb15fb68f.jpg!q70.jpg"/>
+							<p>运动</p>
+						</div>
+						<div class="item">
+							<img src="img/5930bce9Ne187340a.jpg!q70.jpg"/>
+							<p>数码</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="hot">
+					<p class="left">热门分类</p>
+					<p class="right">排行榜></p>
+					<div class="item-board clear">
+						<div class="item">
+							<img src="img/59b63794Ne1e3031a.jpg!q70.jpg"/>
+							<p>家电</p>
+						</div>
+						<div class="item">
+							<img src="img/59b63794Ne1e3031a.jpg!q70.jpg"/>
+							<p>家电</p>
+						</div>
+						<div class="item">
+							<img src="img/59b63794Ne1e3031a.jpg!q70.jpg"/>
+							<p>家电</p>
+						</div>
+						<div class="item">
+							<img src="img/59b63794Ne1e3031a.jpg!q70.jpg"/>
+							<p>家电</p>
+						</div>
+						
+					</div>
+						<input type="text" name="children" id="children" value="儿童文学" />
+				</div>
+				
+			</div>
+		</div>
+			<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+			<script type="text/javascript">
+				
+				var offsetTop = 0;
+				
+				$(".list").on({
+					startY : 0,
+					
+					touchstart: function(e){
+						this.startY = e.originalEvent.changedTouches[0].pageY;
+					},
+					
+					touchmove:function(e){
+						var y= e.originalEvent.changedTouches[0].pageY;
+						var offset = offsetTop + y-this.startY;//滑动距离
+						var h = $(".list").height()-($(".list ul").height()+offset);
+						
+						if($(".list").height()-$(".top").height()-$(".list ul").height()-150>offset){
+							offset = $(".list").height()-$(".top").height()-$(".list ul").height()-150;
+						}
+						
+						
+						offset = offset>150?150:offset;
+						$(".list ul").css("top",offset+"px");
+						
+					},
+						
+					touchend:function(e){
+						var y= e.originalEvent.changedTouches[0].pageY;
+						offsetTop = offsetTop + y - this.startY;
+						
+						if(offsetTop>0){
+							offsetTop = 0;
+							$(".list ul").animate({top:"0px"},300);
+						}
+						
+						if($(".list").height()-$(".top").height()-$(".list ul").height()>offsetTop){
+							offsetTop = $(".list").height()-$(".top").height()-$(".list ul").height();
+							$(".list ul").animate({top:offsetTop+"px"},300);
+						}
+						
+					}
+					
+				});
+				
+			</script>
+	
+	</body>
+</html>

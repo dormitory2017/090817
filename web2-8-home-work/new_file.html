@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			html{
+				font-size: calc(100vw/6.4);
+			}
+			body{
+				margin: 0;
+			}
+			
+			.left{
+				float: left;
+			}
+			
+			.right{
+				float: right;
+			}
+			.top{
+				height: 0.88rem;
+				width: 100%;
+				background-color: #f9f9f9;
+				line-height: 0.88rem;
+				font-size: 0.32rem;
+				text-align: center;
+				border-bottom: 1px solid #bbbbbb;
+			}
+			.top .back{
+				float: left;
+			}
+			
+			.header{
+				height: 0.9rem;
+				width: 100%;
+				line-height: 0.9rem;
+				font-size: 0.3rem;
+				border-bottom: 1px solid #bbbbbb;
+				text-align: center;
+			}
+			
+			.user{
+				width: 2.4rem;
+				height: 0.9rem;
+				border-bottom: 3px solid red;
+				margin:0 0.3rem;
+				box-sizing: border-box;
+			}
+			
+			.text{
+				width: 2.4rem;
+				height: 0.9rem;
+				margin:0 0.3rem;
+				box-sizing: border-box;
+			}
+			
+			/*账号密码*/
+			
+			.input{
+				width: 5.6rem;
+				height:1.92rem;
+				/*background-color: gainsboro;*/
+				margin:0 0.4rem;
+				font-size: 0.24rem;
+				padding-bottom: 0.6rem;
+			}
+			
+			
+			.user-name{
+				height: 0.96rem;
+				line-height: 0.96rem;
+				width: 100%;
+				/*background-color: dimgray;*/
+				border-bottom: 2px solid #d7d7d7;
+			}
+			
+			#user-name{
+				margin: 0 0.2rem;
+				font-size: 0.26rem;
+			}
+			
+			#username{
+				outline: none;
+				width: 4.5rem;
+				height: 0.7rem;
+				border: none;
+				padding-left: 0.1rem;
+				font-size: 0.26rem;
+			}
+			
+			
+			.password{
+				height: 0.96rem;
+				line-height: 0.96rem;
+				width: 100%;
+				/*background-color: gray;*/
+				border-bottom: 2px solid #d7d7d7;
+			}
+			
+		
+			#password{
+				margin: 0 0.2rem;
+				font-size: 0.26rem;
+			}
+			
+			#pwd{
+				outline: none;
+				width: 4.5rem;
+				height: 0.7rem;
+				border: none;
+				padding-left: 0.1rem;
+				font-size: 0.26rem;
+			}
+			
+			/*按钮*/
+			.button{
+				height: 2.5rem;
+				width: 5.6rem;
+				margin:0 0.4rem;
+				font-size: 0.24rem;
+				/*background-color: gainsboro;*/
+				text-align: center;
+				padding-bottom: 0.44rem; 
+				box-sizing: border-box;
+			}
+			
+			.btn-login{ 
+				height: 0.9rem;
+				width: inherit;
+				background-color: #eeeeee;
+				line-height: 0.9rem;
+				color: #848689;
+				border-radius: 2px;
+				/*box-sizing: border-box;*/
+				
+			}
+			
+			.btn-one{
+				height: 0.9rem;
+				width: inherit;
+				/*background-color: #eeeeee;*/
+				line-height: 0.9rem;
+				color: #848689;
+				margin-top: 0.2rem;
+				border: 2px solid red;
+				border-radius: 4px;
+				/*box-sizing: border-box;*/
+			}
+			
+			/*忘记密码*/
+			
+			.item{
+				width: 5.6rem;
+				height: 2.7rem;
+				/*background-color: gainsboro;*/
+				margin:0 0.4rem;
+				font-size:0.2rem ;	
+				color: #333333;
+			}
+			
+			#forget{
+				padding-left: 0.4rem;
+			}
+			#cellphone{
+				padding-left: 0.4rem;
+			}
+			
+			/*其他*/
+			.other{
+				width: 5.6rem;
+				height: 2rem;
+				margin:0 0.4rem;
+				font-size: 0.24rem;
+				color: #333333;
+				/*background-color: gainsboro;*/
+				position: relative;
+				text-align: center;
+			}
+			
+			.other-login{
+				width: 100%;
+			}
+			.qq{
+				width: 0.42rem;
+				height: 0.42rem;
+				/*background-color: gray;*/
+				position: absolute;
+				top: 1.04rem;
+				left: 1.6rem;
+			}
+			
+			.qq img{
+				width: inherit;
+				height: inherit;
+			}
+			
+			.wechat{
+				width: 0.42rem;
+				height: 0.42rem;
+				/*background-color:dimgray;*/
+				position: absolute;
+				top: 1.04rem;
+				left: 3.54rem;
+			}
+			
+			.wechat img{
+				width: inherit;
+				height: inherit;
+			}
+			#word{
+				text-align: center;
+				font-size: 0.24rem;
+			}
+			
+			#word .line{
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<!--顶部-->
+		<div class="top">
+			<span class="back"><</span>
+			<span class="title">京东登录</span>
+		</div>
+		
+		<!--内容-->
+		<div class="header">
+			<p class="user left">账号密码登录</p>
+			<p class="text right">短信验证码登录</p>
+		</div>
+		
+		<div class="input">
+			<div class="user-name">
+				<span id="user-name">账号</span><input type="text" name="username" id="username" value=""  placeholder="用户名/邮箱/已验视手机"/>
+			</div>
+			<div class="password">
+				<span id="password">密码</span><input type="text" name="pwd" id="pwd" value=""  placeholder="请输入密码"/>
+			</div>
+		</div>
+		
+		<div class="button">
+			<div class="btn-login">
+				<span>登录</span>
+			</div>
+			<div class="btn-one">
+				<span>一键登录</span>
+			</div>
+		</div>
+		
+		<div class="item">
+			<span id="forget" class="left">忘记密码</span>
+			<span id="cellphone" class="right">手机快速注册</span>
+		</div>
+		
+		<div class="other">
+			<span class="other-login"> ———————&nbsp;&nbsp;&nbsp;&nbsp;其他登录方式 &nbsp;&nbsp;———————</span>
+			<div class="qq">
+				<img src="img/qq.jpg"/>
+			</div>
+			<div class="wechat">
+				<img src="img/wechat.jpg"/>
+			</div>
+		</div>
+		
+		<div id="word">
+			登录即代表您已同意<span class="line">京东隐私政策</span>
+		</div>
+		
+	</body>
+</html>
