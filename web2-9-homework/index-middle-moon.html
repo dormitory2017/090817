@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css"/>
+		<style>
+			html{
+				font-size: calc(100vw/7.2);
+			}
+			.section{
+				background-image: url(img/FjWK9hvFGHfqDMZvSlFabIW_f2xk.png);
+				background-size: cover;
+				width: 100vw;
+				overflow: hidden;
+			}
+			
+			.section img{
+				position: absolute;
+			}
+			
+			.section div{
+				position: relative;
+			}
+			
+			/*第一页*/
+			
+			/*上半部分*/
+			
+			/*宫殿*/
+			 .palace{
+			 	top:80%;
+			 	width: 100%;
+			 	height: 36%;
+			 	left: 1%;
+			 	opacity: 0;
+			 	-webkit-transition: all 0.1s;
+			 }	
+			 .active .palace{
+			 	top: 10%;
+			 	opacity: 1;
+			 	-webkit-transition:all 1s 1s linear;
+			 	}
+			
+			 .moon-light{
+			 	width:80%;
+			 	height: 50%;
+			 	top: 0%;
+			 	left: 10%;;
+			    opacity: 0;
+			    -webkit-animation: disapear 2s 2s linear infinite;
+			 }
+			/*月亮*/
+			.moon{
+			 	width:80%;
+			 	height: 50%;
+			 	top: 0%;
+			 	left: 10%;
+			 	opacity:0;
+			 	-webkit-transition:opacity 1s ;
+			 }
+			
+			 .active .moon{
+			 	opacity: 1;
+			 	-webkit-transition:all 1s 1s linear;
+			 	}
+			 .path{
+			 	width: 30%;
+			 	height:12%;
+			 	bottom: 150%;
+			 	opacity: 0;
+			 	left: 35%;
+			 	-webkit-transition:all 0.1s;
+			 }	
+			 .active .path{
+			 	top: 42%;
+			 	opacity: 1;
+			 	-webkit-transition:all 1s 2s linear;
+			 }
+			
+			/*左侧*/
+			.leaf-left{
+			 	width: 50%;
+			 	height: 40%;
+			 	top: 50%;
+			 	left: -120%;
+			 	-webkit-transition: left 0.1s;
+			 }
+			 .active .leaf-left{
+			 	left: 0%;
+			 	-webkit-transition:left 1s 0.2s linear;
+			 }
+			 .maids-left{
+			 	width:40%;
+			 	height: 30%;
+			 	top: 50%;
+			 	left: -120%;
+			 	-webkit-transition: left 0.1s;
+			 }
+			 .active .maids-left{
+			 	left: 10%;
+			 	-webkit-transition:left 1.5s 0.2s linear;
+			 	}
+			
+			/*右侧*/
+			
+			.mountain-right{
+			 	/*width: 1.76rem;
+			 	height: 2.34rem;*/
+			 	width: 30%;
+			 	right: -120%;
+			 	/*top: 7.46rem;*/
+			 	bottom: 10%;
+			 	-webkit-transition: right 0.1s;
+			 }
+			 .active .mountain-right{
+			 	right:-4%;
+			 	-webkit-transition:right 1s 0.2s linear;
+			 }
+			
+			.maids-right{
+				bottom: 0;
+				width: 100%;
+				left: 120%;
+				-webkit-transition: left 0.4s linear; 
+			}
+			
+			.active .maids-right{
+				left: 0%;
+				-webkit-transition: left 1s linear 1s;
+			}
+			
+			.leaf-right{
+			 	width: 40%;
+			 	height: 10%;
+			 	right: -120%;
+			 	top: 50%;
+			 	-webkit-transition: right 0.1s;
+			 }
+			 .active .leaf-right{
+			 	right: -10%;
+			 	-webkit-transition:right 1s 1.5s linear;
+			 }
+			 
+			 /*隐藏动画*/
+			 @-webkit-keyframes disapear{
+			 	0%{opacity: 0; 	 }
+			 	25%{opacity: 0.2;}
+			 	50%{opacity: 0.5;}
+			 	75%{opacity: 0.2;}
+			 	100%{opacity: 0;}
+			 }	
+			
+			/*文字部分*/
+			.text-1{
+				width: 20%;
+				height: 6%;
+				top: 20%;
+				left: -120%;
+				-webkit-transition: left 0.1s;
+			}
+			.active .text-1{
+				left: 20%;
+				-webkit-transition: left 1s 1.5s linear;
+			}
+			.text-2{
+				width: 34%;
+				height: 10%;
+				top: 16%;
+				left: 120%;
+				-webkit-transition: left 0.1s;
+		         
+			}
+			.active .text-2{
+				left:44%;
+				-webkit-transition: left 1s 1.5s linear;
+			}
+			.text-3{
+				width: 20%;
+				height: 6%;
+				top: 30%;
+			    left: -120%;
+				-webkit-transition: left 0.1s;
+		         
+			}
+			.active .text-3{
+				left: 24%;
+				-webkit-transition: left 1s 1.6s linear;
+			}
+			.text-4{
+				width: 34%;
+				height: 10%;
+				top: 28%;
+			    left: 120%;
+				-webkit-transition: left 0.1s;
+		         
+			}
+			.active .text-4{
+				left: 50%;
+				-webkit-transition: left 1s 1.5s linear;
+			}
+			
+			/*左右背景图*/
+			.move-pic-left{
+				width: 40%;
+				height: 100%;
+				left: -120%;
+				top: 0rem;
+				opacity: 0.5;
+				-webkit-animation: moveleft 3s 1s linear infinite;
+			}
+			 @-webkit-keyframes moveleft{
+			 	0%{
+			 		left: -120%;
+			 	}
+			 	25%{
+			 		left:-60% ;
+			 	}
+			 	50%{left: 0;
+			 	}
+			 	75%{left: -60%;}
+			 	
+			 	100%{
+			 		left: -120%;
+			 	}
+			 }
+			.move-pic-right{
+				width: 40%;
+				height: 100%;
+				right: -120%;
+				top: 0;
+				opacity: 0.5;
+				-webkit-animation: moveright 3s 1s linear infinite;
+			}
+			@-webkit-keyframes moveright{
+			 	0%{
+			 		right: -120%;
+			 	}
+			 	25%{
+			 		right:-60%;
+			 	}
+			 	50%{
+			 		right: 0;
+			 
+			 	}
+			 	75%%{right: -60%;}
+			 	
+			 	100%{
+			 		right: -120%;
+			 	}
+			 }
+			
+			
+			
+			/*第二页*/
+			/*月亮*/
+			.rotate-moon{
+				width: 3.70rem;
+				height: 4.04rem;
+				position: fixed;
+				left: 5rem;
+				top: -2rem;
+				-webkit-animation: rotateing 3s 0.2s linear infinite;
+			}
+			@-webkit-keyframes rotateing{
+				0%{
+					-webkit-transform: rotate(0deg);
+				}
+				100%{
+					-webkit-transform: rotate(360deg);
+				}
+			}
+			
+			/*枝叶*/
+			.section div{
+				position: absolute;
+			}
+			.leaf{
+				width: 2.14rem;
+				height: 1.67rem;
+				left: 5rem;
+				top: -120%;
+				-webkit-transition: top 0.1s;
+			}
+			.active .leaf{
+				top: -0.2rem;
+				-webkit-transition: top  1.5s 0.1s linear;
+			}
+			
+			.first-text{
+				width: 4.36rem;
+				height: 0.92rem;
+				left: 0.44rem;
+				top: 0.44rem;
+			}
+			.active .first-text{
+				-webkit-animation:scales 2s 0.8s ease 1 normal both ;
+			}
+			
+			#first-text{
+				display: block;
+				position: absolute;
+				top: 0.77rem;
+				left: 1.2rem;
+			}
+			.active #first-text{
+			  overflow: hidden;
+			  -webkit-animation: scales2 1s 1.4s ease 1 normal both ;
+			}
+			
+			.second-text{
+				width: 2rem;
+				height: 1rem;
+			    top: 1.82rem;
+			    left: 2.7rem;
+			    text-align: center;
+			}
+			.second-text img{
+				width: 1.86rem;
+				height: 1rem;
+				margin-left: -0.93rem;
+			}
+			.active .second-text{
+				-webkit-animation:downs 2s 0.8s ease 1 normal both ;
+			}
+			
+			.third-text{
+				width: 5.74rem;
+				height: 1.16rem;
+				left: 0.92rem;
+				top: 3.25rem;
+
+			}
+			.active .third-text{
+				-webkit-animation:scales 2s 1.2s ease 1 normal both ;
+			}
+			#third-text{
+			   width: 5.74rem;
+				height: 1.16rem;
+				left: 1.2rem;
+				top: 3.25rem;	
+				position: relative;
+				
+			}
+			#third-text span{
+				position: absolute;
+				top: 0rem;
+			    left: 1.12rem;
+			    line-height: 1.16rem;
+			}
+			.active #third-text{
+				-webkit-animation:scales2 2s 1.1s ease 1 normal both ;	
+			}
+			.fourth-text{
+				width: 1.2rem;
+				height: 1rem;
+			    top: 4.96rem;
+			    text-align: center;
+				left: 3rem;
+			    
+			}
+			.fourth-text img{
+				width: 1.02rem;
+				height: 1rem;
+
+				margin-left: -0.51rem;
+			}
+			.active .fourth-text{
+				-webkit-animation:downs 2s 1.5s ease 1 normal both ;
+			}
+			.fifth-text{
+				width: 5.76rem;
+				height: 1.68rem;
+				left: 0.96rem;
+				top: 6.25rem;
+			}
+			.active .fifth-text{
+			   -webkit-animation:scales 2s 2s ease 1 normal both ;		
+			}
+			#fifth-text{
+				width: 5.76rem;
+				height: 1.68rem;
+				left: 0.96rem;
+				top: 6.25rem;
+			}
+			#fifth-text span{
+				position: absolute;
+				left: 1.4rem;
+				top: 0.96rem;
+			}
+			#fifth-text span:first-child{
+				position: absolute;
+				left: 1.4rem;
+				top: 0.46rem;
+				
+			}
+			.active #fifth-text{
+			 -webkit-animation:scales2 2s 1.8s ease 1 normal both ;	
+			}
+			.item-leaf-left{
+				width: 3.8rem;
+			 	height: 3.58rem;
+			 	top: 9rem;
+			 	left: -120%;
+			}
+			.active .item-leaf-left{
+			 	left: -1rem;
+			 	-webkit-transition:left 2s 0.8s linear;
+			 }
+			.item-leaf-right{
+				width: 1.82rem;
+			 	height: 0.94rem;
+			 	right: -120%;
+			 	top: 11rem;
+				}
+			.active .item-leaf-right{
+			 	right: 0rem;
+			 	-webkit-transition:right 2s 0.8s linear;
+			 }
+		    .teapot{
+		    	width: 2.6rem;
+		    	height: 1.74rem;
+		    	top: 10rem;
+		    	left: -120%;
+		    	z-index: 200;
+		    }
+		    .active .teapot{
+			 	left: 0.18rem;
+			 	-webkit-transition:left 2s 1.2s linear;
+			 }
+		    .seven-box{
+		    	width: 1.2rem;
+		    	height: 0.5rem;
+		    	top: 8.82rem;
+		    	right: -120%;
+		    }
+		    .active .seven-box{
+		 	right: 0.84rem;
+		 	-webkit-transition:right 1.8s 0.8s linear;
+		 }*/
+			
+			
+			/*第三页*/
+			
+			/*第四页*/
+			/*第五页*/
+			/*第六页*/
+			/*第七页*/
+			
+			
+		</style>
+	</head>
+	
+	<body>
+		<div id="fullpage">
+			<!--第一页-->
+			
+			<div class="section">
+				<!--上半部分-->
+				
+				<img class="moon-light" src="img/FjLcMOmqSjcup3jdoXKGyu10zQmP.png"/>
+				<img class="palace" src="img/Fok2QoqdCBA3lYTKGklnB3lajbgT.png"/>
+				<img class="moon" src="img/FhpBml68MuQq2QDRsgdQ8Ix7-0rG.png"/>
+				<img class="path" src="img/Fnkgjtt6OxWkmA6AwrEWwb1tbudP.png"/>
+				
+				<!--左侧-->
+					<!--荷叶-->
+					<img class="leaf-left" src="img/FnyVjuQT0e82xhf5dgo1aKgmMVp0.png"/>
+					<!--宫女-->
+					<img class=" maids-left"  src="img/Fo5hoYRp0zgJzqMMLxaCBha-fWEA.png"/>
+				<!--右侧-->
+					<!--荷叶-->
+					<img class="leaf-right" src="img/FuYvBb_8MqtAvVW2fzLevnlz6Pby.png"/>
+					<!--假山-->
+					<img class="mountain-right" src="img/FgmqjzEK7mMGsXELwByAuF_edmjb.png"/>
+					<!--宫女-->
+					<img class="maids-right" src="img/Fjt4xYpfTJbX4g0Lrg-hfxEjTx2b.png"/>
+					<!--文字-->
+						<img class="text-1" src="img/FvowP09UCo4UhLJd9Y7SRgMXSwqT.png"/>
+						<img class="text-2" src="img/FkicdfRlvDXfGiuTXjhg23S_nUqK.png"/>
+						<img class="text-3" src="img/FjeuIOErT7WPWobCVkKqLgrX_umR.png"/>
+						<img class="text-4" src="img/FrOUJlZjS8Vqk-4l_QCtUy0uTuYY.png"/>
+						
+					<!--移动背景-->
+						<!--左侧-->
+						<img class="move-pic-left" src="img/Fgr3dkKPxdmxthiGVNszaUj8nKH5.png"/>
+						<!--右侧-->
+						<img class="move-pic-right" src="img/Fg0rt5mrH7TPh3hHh3xFb2RP3lxx.png"/>
+			</div>
+			
+			<!--第二页-->
+			
+			<div class="section">
+				<img class="rotate-moon" src="img/FjLcMOmqSjcup3jdoXKGyu10zQmP.png"/>
+				<img class="leaf" src="img/FrtpKfX-uB-T8uA34RelYioQ_Ayf.png"/>
+				<img class="first-text" src="img/Fidl-Azk8dCxh_AaHNvZgFIpyKkO.png"/>
+				<span id="first-text" style="font-size: 0.26rem;">
+					双节祝福我们是真心的
+				</span>
+				<img class="second-text" src="img/Fodq1qOYcodDSF4zgo-Tm4BqN5NX.png"/>
+				<img class="third-text" src="img/Fidl-Azk8dCxh_AaHNvZgFIpyKkO.png"/>
+				<div id="third-text">
+					<span  style="font-size: 0.26rem;">
+						祝福为公司奋勇拼搏的你
+					</span>
+				</div>	
+				<img class="fourth-text" src="img/FmyN_57ZIHCXijlJutBZJ-rCxBt8.png"/>
+				<img class="fifth-text" src="img/Fo-i1YGkDLs8QHxZ_lqTUaY9Oth6.png"/>
+				<div id="fifth-text">
+					<span style="font-size: 0.26rem;">愿你每一份努力都有成效</span> 
+					<span style="font-size: 0.26rem;">愿你前程似锦，步步高升</span>
+				</div>
+				<img class="teapot" src="img/FkXdZGeZnVkzyNYwV3c0_udfv-CY.png"/>
+				<img class="item-leaf-left" src="img/FnyVjuQT0e82xhf5dgo1aKgmMVp0.png"/>
+				<img class="item-leaf-right" src="img/FuYvBb_8MqtAvVW2fzLevnlz6Pby.png"/>
+				<img class="seven-box" src="img/o_1bobegnlupldlrc15a315gv144kf.png"/>
+			</div>
+			
+			<!--第三页-->
+			<div class="section">第三屏</div>
+			<div class="section">第四屏</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="js/jquery.fullPage.js" ></script>
+		<script type="text/javascript">
+			
+			$(document).ready(function(){
+				$("#fullpage").fullpage({
+					//内容是否垂直居中  ture 是  false 否
+					verticalCentered:true,
+					
+					//字体是否随着窗口缩放而缩放
+					resize:true,
+					
+					//每一屏的背景颜色设置
+//					sectionsColor:["gainsboro","lightgray","darkgray","gray","dimgray"],
+
+					//锚点
+					anchors:["one","two","three","four","five","six","seven","eight","nine","ten"],
+					
+					//滚动速度
+					scrollingSpeed:700,
+					
+					//定义滚动动画效果
+					css3:true,
+					easingcss3:"ease",
+					
+					//是否显示项目导航
+//					navigation:true,//?
+					
+					//导航左右位置设置
+					navigationPosition:"left",
+				
+					//slide导航是否显示
+					slidesNavigation:true,
+					
+					//slide是否循环滚动
+//					loopHorizontal:true,
+					
+					//是否循环滚动 与上面两个冲突
+//					continuousVertical:true,
+					
+					//是否使用插件的滚动方式  如果选择false  则会出现浏览器自带的滚动条
+					autoScrolling:true,
+					
+					//上内边距
+//					paddingTop:"100px",
+					
+					//下内边距
+//					paddingBottom:"50px",
+					
+					
+					//加载完成后的回调函数
+					
+					afterLoad:function(anchorLink,index){
+//						var s = index;
+//						var width = s/9*720;
+//						 $(".rang1").css("width",widths/100+"rem");
+//						var pagenow=document.getElementsByClassName("pagenow")[0];
+//						  pagenow.innerText=s+"/"+9;
+
+                       //????
+					},
+					
+					//离开时候的回调函数
+					
+					onLeave:function(index,nextIndex,direction){},
+					
+					//页面加载后的回调函数
+					
+					afterRender:function(){},
+				});
+			});
+		</script>
+	</body>
+</html>
