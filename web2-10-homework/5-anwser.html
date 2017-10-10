@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="css/weui.min.css">
+    <link rel="stylesheet" href="css/example.css">
+    <title>index</title>
+</head>
+<body>
+<!--BEGIN toast-->
+<div id="toast" style="display: none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content">已完成</p>
+    </div>
+</div>
+<!--end toast-->
+
+<!-- loading toast -->
+<div id="loadingToast" style="display:none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-loading weui-icon_toast"></i>
+        <p class="weui-toast__content">正在提交</p>
+    </div>
+</div>
+<div class="weui-toptips weui-toptips_warn js_tooltips" style="display:none;">错误提示</div>
+<div class="">
+    <div class="weui-panel__bd">
+        <div class="weui-media-box weui-media-box_text">
+            <h4 class="weui-media-box__title">HTML(1/100)</h4>
+            <p class="weui-media-box__desc">1. 移动端开发需要注意哪些方面的问题？</p>
+            <ul class="weui-media-box__info">
+                <li class="weui-media-box__info__meta">HTML</li>
+                <li class="weui-media-box__info__meta">CSS</li>
+                <li class="weui-media-box__info__meta">移动端</li>
+            </ul>
+        </div>
+    </div>
+    <div class="weui-cells weui-cells_checkbox">
+
+        <label class="weui-cell weui-check__label" for="a">
+            <div class="weui-cell__hd">
+                <input type="checkbox" name="checkbox1" class="weui-check" id="a">
+                <i class="weui-icon-checked"></i>
+            </div>
+            <div class="weui-cell__bd">
+                <p>A.standard is dealicient for u.</p>
+            </div>
+        </label>
+        <label class="weui-cell weui-check__label" for="b">
+            <div class="weui-cell__hd">
+                <input type="checkbox" class="weui-check" name="checkbox1" id="b">
+                <i class="weui-icon-checked"></i>
+            </div>
+            <div class="weui-cell__bd">
+                <p>B.standard is dealt for u.</p>
+            </div>
+        </label>
+        <label class="weui-cell weui-check__label" for="c">
+            <div class="weui-cell__hd">
+                <input type="checkbox" name="checkbox1" class="weui-check" id="c">
+                <i class="weui-icon-checked"></i>
+            </div>
+            <div class="weui-cell__bd">
+                <p>C.standard is dealicient for u.</p>
+            </div>
+        </label>
+        <label class="weui-cell weui-check__label" for="d">
+            <div class="weui-cell__hd">
+                <input type="checkbox" class="weui-check" name="checkbox1" id="d" checked="checked">
+                <i class="weui-icon-checked"></i>
+            </div>
+            <div class="weui-cell__bd">
+                <p>D.standard is dealt for u.</p>
+            </div>
+        </label>
+    </div>
+    <div class="weui-btn-area">
+        <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">提交</a>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/zepto.min.js" ></script>
+<script type="text/javascript">
+    $("#showTooltips").on('click',function(){
+        var $toptips = $('.weui-toptips');
+        $('#showTooltips').on('click', function(){
+            if ($toptips.css('display') != 'none') return;
+            $toptips.show();
+            setTimeout(function () {
+                $toptips.hide();
+            }, 2000);
+        });
+    });
+
+    // toast
+    $(function(){
+//			        var $toast = $('#toast');
+//			        $('#showTooltips').on('click', function(){
+//			            if ($toast.css('display') != 'none') return;
+//			            $toast.fadeIn(100);
+//			            setTimeout(function () {
+//			                $toast.fadeOut(100);
+//			            }, 2000);
+//			        });
+    });
+
+    // loading
+    $(function(){
+        var $loadingToast = $('#loadingToast');
+        $('#showTooltips').on('click', function(){
+            if ($loadingToast.css('display') != 'none') return;
+
+            $loadingToast.fadeIn(100);
+            setTimeout(function () {
+                $loadingToast.fadeOut(100);
+            }, 2000);
+        });
+    });
+
+</script>
+
+</body>
+</body>
+</html>
